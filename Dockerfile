@@ -1,7 +1,7 @@
 # parameters
-ARG REPO_NAME="CSCE274-base"
-ARG DESCRIPTION="Base class repo for sc CSCE 274"
-ARG MAINTAINER="Ioannis Rekleitis (yiannisr@cse.sc.edu)"
+ARG REPO_NAME="csce274robotics"
+ARG DESCRIPTION="Repo for sc CSCE 274, modified by Sam Dunny"
+ARG MAINTAINER="Samuel Dunny (samdunny.edu11@gmail.com)"
 # pick an icon from: https://fontawesome.com/v4.7.0/icons/
 ARG ICON="cube"
 

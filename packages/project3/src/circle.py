@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
 import rospy
-from std_msgs.msg import Float32
-from duckietown_msgs.msg import 
+from duckietown_msgs.msg import Twisted2DStamp
+from time import sleep
 
 class car_publisher:
     def __init__(self):
@@ -12,7 +12,7 @@ class car_publisher:
 
     def callback(self, data):
         # keeps running total of input data
-        self.total += data.data
+        self.total = data.data
         self.pub.publish(self.total)
 
 if __name__ == '__main__':

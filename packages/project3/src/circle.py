@@ -1,25 +1,22 @@
 #!/usr/bin/env python3
 
 import rospy
-from duckietown_msgs.msg import Twisted2DStamp
+from duckietown_msgs.msg import Twist2DStamped
 from time import sleep
 
-class car_publisher:
-    def __init__(self):
-        # publishes to the "/car_cmd_switch_node/cmd" topic
-        self.pub = rospy.Publisher("/car_cmd_switch_node/cmd", Float32, queue_size=10)
-        self.total = 0
-
-    def callback(self, data):
-        # keeps running total of input data
-        self.total = data.data
-        self.pub.publish(self.total)
-
+class circle():
+    pub = rospy.Publisher('car_cmd_switch_node/cmd', Twist2DStamped, queue_size=10)
+    rospy.init_node('project_3_circle')
+    msg = Twist2DStamped(header=None, v = '0.1', omega = '0.3')
+    pub.publish(msg)
+    sleep(10) # robot runs for 10 seconds
+    msg = Twist2DStamped(header = None, v = '0', omega = '0') # stop robot
+    pub.publish(msg)
+    
+    
 if __name__ == '__main__':
-    # initializing node as 'hw4_pub'
-    rospy.init_node('hw4_pub')
-    hw4_pub()
-
-    # prevents python from exiting until node is stopped
-    rospy.spin()
+    try:
+        circle()
+    except rospy.ROSInterruptException:
+        pass
 

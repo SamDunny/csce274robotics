@@ -1,0 +1,7 @@
+<launch>
+
+  <group ns="$(env HOSTNAME)">
+    <node pkg="project3" name="proj3_circle" type="circle.py" />
+  </group>
+
+</launch>

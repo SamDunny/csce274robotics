@@ -7,7 +7,7 @@ from time import sleep
 def circle():
     pub = rospy.Publisher('car_cmd_switch_node/cmd', Twist2DStamped, queue_size=10)
     rospy.init_node('project_3_circle')
-    msg = Twist2DStamped(header=None, v = 0.2, omega = 0.4)
+    msg = Twist2DStamped(header=None, v = 0.3, omega = 0.3)
     pub.publish(msg)
     sleep(30) # robot runs for 10 seconds
     msg = Twist2DStamped(header = None, v = 0, omega = 0) # stop robot

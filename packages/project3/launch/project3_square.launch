@@ -1,0 +1,7 @@
+<launch>
+
+  <group ns="$(env HOSTNAME)">
+    <node pgk="project3" name="proj3_square" type="square.py" />
+  </group>
+
+</launch>

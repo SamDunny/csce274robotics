@@ -10,7 +10,7 @@ def square():
     msg1 = Twist2DStamped(header=None, v = 0.3, omega = 0.0)
     msg2 = Twist2DStamped(header=None, v = 0.0, omega = 0.2)
 
-    for i in range(4)
+    for i in range(0,4):
         pub.publish(msg1)
         sleep(4)
         pub.publish(msg2)

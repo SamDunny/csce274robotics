@@ -16,7 +16,6 @@ def square():
         pub.publish(msg2)
         sleep(1)
 
-
     msg3 = Twist2DStamped(header = None, v = 0, omega = 0) # stop robot
     pub.publish(msg3)
     

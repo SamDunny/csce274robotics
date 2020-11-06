@@ -9,8 +9,12 @@ def circle():
     rospy.init_node('project_3_circle')
     msg = Twist2DStamped(header=None, v = 0.3, omega = 0.3)
     pub.publish(msg)
-    sleep(30) # robot runs for 10 seconds
-    msg = Twist2DStamped(header = None, v = 0, omega = 0) # stop robot
+
+    # robot runs for 10 seconds
+    sleep(30)
+
+    # stop robot
+    msg = Twist2DStamped(header = None, v = 0, omega = 0)
     pub.publish(msg)
     
     

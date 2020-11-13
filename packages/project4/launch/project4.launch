@@ -1,0 +1,7 @@
+<launch>
+
+  <group ns="$(env HOSTNAME)">
+    <node pkg="project4" name="proj4" type="pid.py" />
+  </group>
+
+</launch>

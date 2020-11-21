@@ -11,10 +11,12 @@ ARG ARCH=arm32v7
 ARG DISTRO=daffy
 ARG BASE_TAG=${DISTRO}-${ARCH}
 ARG BASE_IMAGE=dt-ros-commons
+ARG BASE_IMAGE2=dt-core
 ARG LAUNCHER=default
 
 # define base image
 FROM duckietown/${BASE_IMAGE}:${BASE_TAG}
+FROM duckietown/${BASE_IMAGE2}:${BASE_TAG}
 
 # recall all arguments
 ARG ARCH
@@ -80,6 +82,7 @@ LABEL org.duckietown.label.module.type="${REPO_NAME}" \
     org.duckietown.label.base.image="${BASE_IMAGE}" \
     org.duckietown.label.base.tag="${BASE_TAG}" \
     org.duckietown.label.maintainer="${MAINTAINER}"
+    org.duckietown.label.base.image="${BASE_IMAGE2}" \
 # <== Do not change the code above this line
 # <==================================================
 ENTRYPOINT /bin/bash

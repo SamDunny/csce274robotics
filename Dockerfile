@@ -80,9 +80,9 @@ LABEL org.duckietown.label.module.type="${REPO_NAME}" \
     org.duckietown.label.code.location="${REPO_PATH}" \
     org.duckietown.label.code.version.distro="${DISTRO}" \
     org.duckietown.label.base.image="${BASE_IMAGE}" \
+    org.duckietown.label.base.image="${BASE_IMAGE2}" \
     org.duckietown.label.base.tag="${BASE_TAG}" \
     org.duckietown.label.maintainer="${MAINTAINER}"
-    org.duckietown.label.base.image="${BASE_IMAGE2}" \
 # <== Do not change the code above this line
 # <==================================================
 ENTRYPOINT /bin/bash

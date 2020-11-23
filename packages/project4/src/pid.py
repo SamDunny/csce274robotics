@@ -29,7 +29,7 @@ class Project4:
         return_val = self.pid_phi(data.phi)
         rospy.logerr("Dunny Demo Time")
 
-        msg = Twist2DStamped(header = None, v = 0, omega = return_val)
+        msg = Twist2DStamped(header = None, v = 0.02, omega = return_val)
         self.pub.publish(msg)
 
 

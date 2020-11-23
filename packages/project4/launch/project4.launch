@@ -1,6 +1,6 @@
 <launch>
 
-	<arg name="veh" default="$(env HOSTNAME)"/>
+	<arg name="veh" default="$(env VEHICLE_NAME)"/>
 	<arg name="ai_trafo_mode" default="cb" doc="'cb' for colobalance only;'both' for color balance and linear trafo"/>
   	<arg name="ai_interval" default="5" doc="interval with which the linear trafo gets updated. color balance is performed every second."/>
   	<arg name="verbose" default="false"/>
@@ -30,7 +30,7 @@
 		   <arg name="/lane_following/lane_controller" value="false"/>
 	</include>
 
-	<group ns="$(env HOSTNAME)">
+	<group ns="$(env VEHICLE_NAME)">
 		<node pkg="project4" name="proj4" type="pid.py" />
 	</group>
 

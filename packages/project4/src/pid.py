@@ -37,7 +37,7 @@ class Project4:
         error = self.setpoint - phi
         self.integral_phi = self.integral_phi + error
         derivative = error - self.prevErr_phi
-        output = (self.Kp * error) + (self.Ki * self.integral_phi) + (self.Kd * derivative_phi)
+        output = (self.Kp * error) + (self.Ki * self.integral_phi) + (self.Kd * derivative)
         self.prevErr_phi = error
         return output
     

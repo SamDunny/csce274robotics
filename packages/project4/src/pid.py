@@ -25,8 +25,8 @@ class Project4:
 
     # gets called everytime lan_pose publishes new data
     def callback(self, data):
-        # calling pid_d for d variable
-        return_val = pid_d(data.phi)
+        # calling pid_phi for phi variable
+        return_val = pid_phi(data.phi)
 
         msg = Twist2DStamped(header = None, v = 0, omega = return_val)
         self.pub.publish(msg)

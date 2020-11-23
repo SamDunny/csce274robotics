@@ -8,7 +8,7 @@ class Project4:
 
     def __init__(self):
         rospy.Subscriber("lane_filter_node/lane_pose", LanePose, self.callback)
-        self.pub = rospy.Publisher("car_cmd_switch_node/cmd", Twisted2DStamped, queue_size=10)
+        self.pub = rospy.Publisher("car_cmd_switch_node/cmd", Twist2DStamped, queue_size=10)
 
         # starting off with 0 previous error and 0 for the integral value
         self.prevErr_d = 0

@@ -27,6 +27,7 @@ class Project4:
     def callback(self, data):
         # calling pid_phi for phi variable
         return_val = self.pid_phi(data.phi)
+        rospy.logerr("Dunny Demo Time")
 
         msg = Twist2DStamped(header = None, v = 0, omega = return_val)
         self.pub.publish(msg)

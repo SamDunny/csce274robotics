@@ -11,8 +11,6 @@ class Project4:
         self.pub = rospy.Publisher("car_cmd_switch_node/cmd", Twist2DStamped, queue_size=10)
 
         # starting off with 0 previous error and 0 for the integral value
-        self.prevErr_d = 0
-        self.integral_d = 0
         self.prevErr_phi = 0
         self.integral_phi = 0
 
@@ -26,21 +24,11 @@ class Project4:
 
 
     # gets called everytime lan_pose publishes new data
-    def callback(data):
+    def callback(self, data):
         # calling pid_d for d variable
-        pid_d(data.d)
-        # calling pid_phi for phi variable
-        pid_phi(data.phi)
+        return_val = pid_d(data.phi)
 
-
-    # pid controller for d (variable to stay in center of the lane)
-    def pid_d(self, d):
-        error = self.setpoint - d
-        self.integral_d = self.integral_d + error
-        derivative = error - self.prevErr_d
-        output = (self.Kp * error) + (self.Ki * self.integral_d) + (Kd * derivative_d)
-        self.prevErr_d = error
-        msg = Twist2DStamped(header = None, v = output, omega = 0)
+        msg = Twist2DStamped(header = None, v = 0, omega = return_val)
         self.pub.publish(msg)
 
 
@@ -51,8 +39,7 @@ class Project4:
         derivative = error - self.prevErr_phi
         output = (self.Kp * error) + (self.Ki * self.integral_phi) + (Kd * derivative_phi)
         self.prevErr_phi = error
-        msg = Twist2DStamped(header = None, v = 0, omega = output)
-        self.pub.publish(msg)
+        return output
     
     
 if __name__ == '__main__':

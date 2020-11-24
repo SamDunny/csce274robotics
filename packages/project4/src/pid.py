@@ -37,7 +37,7 @@ class Project4:
 
         rospy.logerr('DUNNY Demo: PID Return Value = {}'.format(return_val) )
 
-        msg = Twist2DStamped(header = None, v = 0.4, omega = return_val)
+        msg = Twist2DStamped(header = None, v = 0.08, omega = return_val)
         self.pub.publish(msg)
 
 

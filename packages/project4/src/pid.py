@@ -21,7 +21,7 @@ class Project4:
         self.Kd = 1
 
         # time derivative
-        dt = 0.1
+        self.dt = 0.1
 
 
     # gets called everytime lan_pose publishes new data
@@ -45,7 +45,7 @@ class Project4:
     def pid_phi(self, phi):
         error = self.setpoint - phi
         derivative = error - self.prevErr_phi
-        output = (self.Kp * error) + (self.Kd * (derivative / dt))
+        output = (self.Kp * error) + (self.Kd * (derivative / self.dt))
         self.prevErr_phi = error
         return output
     

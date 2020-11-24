@@ -10,17 +10,18 @@ class Project4:
         rospy.Subscriber("lane_filter_node/lane_pose", LanePose, self.callback)
         self.pub = rospy.Publisher("car_cmd_switch_node/cmd", Twist2DStamped, queue_size=10)
 
-        # starting off with 0 previous error and 0 for the integral value
+        # starting off with 0 previous error
         self.prevErr_phi = 0
-        self.integral_phi = 0
 
         # setpoint is ideally 0, to maintain lane
         self.setpoint = 0
 
         # controls
-        self.Kp = 1;
-        self.Ki = 1;
-        self.Kd = 1;
+        self.Kp = 1
+        self.Kd = 1
+
+        # time derivative
+        dt = 0.1
 
 
     # gets called everytime lan_pose publishes new data
@@ -29,9 +30,9 @@ class Project4:
         return_val = self.pid_phi(data.phi)
 
         # capping return values
-        if (return_val > 4.0)
+        if return_val > 4.0
             return_val = 4.0
-        if (return_val < -4.0)
+        if return_val < -4.0
             return_val = -4.0
 
         rospy.logerr('DUNNY Demo: PID Return Value = {}'.format(return_val) )
@@ -43,9 +44,8 @@ class Project4:
     # pid controller for phi (variable to remain parallel in-between the lines)
     def pid_phi(self, phi):
         error = self.setpoint - phi
-        self.integral_phi = self.integral_phi + error
         derivative = error - self.prevErr_phi
-        output = (self.Kp * error) + (self.Ki * self.integral_phi) + (self.Kd * derivative)
+        output = (self.Kp * error) + (self.Kd * (derivative / dt))
         self.prevErr_phi = error
         return output
     

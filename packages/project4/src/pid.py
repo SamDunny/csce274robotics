@@ -17,8 +17,8 @@ class Project4:
         self.setpoint = 0
 
         # controls
-        self.Kp = 1
-        self.Kd = 1
+        self.Kp = 2
+        self.Kd = 2
 
         # time derivative
         self.dt = 0.1
@@ -37,7 +37,7 @@ class Project4:
 
         rospy.logerr('DUNNY Demo: PID Return Value = {}'.format(return_val) )
 
-        msg = Twist2DStamped(header = None, v = 0.02, omega = return_val)
+        msg = Twist2DStamped(header = None, v = 0.04, omega = return_val)
         self.pub.publish(msg)
 
 

@@ -16,7 +16,7 @@ class Project4:
         # setpoint is ideally 0, to maintain lane
         self.setpoint = 0
 
-        # controls
+        # controls FINAL
         self.Kp = 2
         self.Kd = 3
 
@@ -37,6 +37,7 @@ class Project4:
 
         rospy.logerr('DUNNY Demo: PID Return Value = {}'.format(return_val) )
 
+        # FINAL SPEED = 0.12
         msg = Twist2DStamped(header = None, v = 0.12, omega = return_val)
         self.pub.publish(msg)
 

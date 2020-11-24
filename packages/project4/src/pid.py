@@ -17,8 +17,8 @@ class Project4:
         self.setpoint = 0
 
         # controls
-        self.Kp = 2
-        self.Kd = 2
+        self.Kp = 1
+        self.Kd = 3
 
         # time derivative
         self.dt = 0.1

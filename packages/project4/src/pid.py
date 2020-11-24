@@ -30,9 +30,9 @@ class Project4:
         return_val = self.pid_phi(data.phi)
 
         # capping return values
-        if return_val > 4.0
+        if return_val > 4.0:
             return_val = 4.0
-        if return_val < -4.0
+        if return_val < -4.0:
             return_val = -4.0
 
         rospy.logerr('DUNNY Demo: PID Return Value = {}'.format(return_val) )

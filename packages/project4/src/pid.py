@@ -27,7 +27,14 @@ class Project4:
     def callback(self, data):
         # calling pid_phi for phi variable
         return_val = self.pid_phi(data.phi)
-        rospy.logerr("Dunny Demo Time")
+
+        # capping return values
+        if (return_val > 4.0)
+            return_val = 4.0
+        if (return_val < -4.0)
+            return_val = -4.0
+
+        rospy.logerr('DUNNY Demo: PID Return Value = {}'.format(return_val) )
 
         msg = Twist2DStamped(header = None, v = 0.02, omega = return_val)
         self.pub.publish(msg)
